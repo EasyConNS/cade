@@ -43,6 +43,7 @@
             this.清空ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ckbAdv = new System.Windows.Forms.CheckBox();
             this.gpAdv = new System.Windows.Forms.GroupBox();
+            this.ckbRead = new System.Windows.Forms.CheckBox();
             this.cmbFormat = new System.Windows.Forms.ComboBox();
             this.ckbEEPROM = new System.Windows.Forms.CheckBox();
             this.btnErase = new System.Windows.Forms.Button();
@@ -96,7 +97,7 @@
             this.btnBrowse.TabIndex = 2;
             this.btnBrowse.Text = "...";
             this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.button1_Click);
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // gpPort
             // 
@@ -183,35 +184,47 @@
             // ckbAdv
             // 
             this.ckbAdv.AutoSize = true;
-            this.ckbAdv.Location = new System.Drawing.Point(15, 160);
+            this.ckbAdv.Location = new System.Drawing.Point(15, 158);
             this.ckbAdv.Margin = new System.Windows.Forms.Padding(4);
             this.ckbAdv.Name = "ckbAdv";
             this.ckbAdv.Size = new System.Drawing.Size(84, 21);
             this.ckbAdv.TabIndex = 15;
             this.ckbAdv.Text = "Advanced";
             this.ckbAdv.UseVisualStyleBackColor = true;
-            this.ckbAdv.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.ckbAdv.CheckedChanged += new System.EventHandler(this.ckbAdv_CheckedChanged);
             // 
             // gpAdv
             // 
+            this.gpAdv.Controls.Add(this.ckbRead);
             this.gpAdv.Controls.Add(this.cmbFormat);
             this.gpAdv.Controls.Add(this.ckbEEPROM);
             this.gpAdv.Controls.Add(this.btnErase);
-            this.gpAdv.Location = new System.Drawing.Point(139, 136);
+            this.gpAdv.Location = new System.Drawing.Point(107, 136);
             this.gpAdv.Margin = new System.Windows.Forms.Padding(4);
             this.gpAdv.Name = "gpAdv";
             this.gpAdv.Padding = new System.Windows.Forms.Padding(4);
-            this.gpAdv.Size = new System.Drawing.Size(370, 60);
+            this.gpAdv.Size = new System.Drawing.Size(402, 60);
             this.gpAdv.TabIndex = 16;
             this.gpAdv.TabStop = false;
             this.gpAdv.Text = "高级功能";
             this.gpAdv.Visible = false;
             // 
+            // ckbRead
+            // 
+            this.ckbRead.AutoSize = true;
+            this.ckbRead.Location = new System.Drawing.Point(188, 25);
+            this.ckbRead.Name = "ckbRead";
+            this.ckbRead.Size = new System.Drawing.Size(108, 21);
+            this.ckbRead.TabIndex = 6;
+            this.ckbRead.Text = "Read(Backup)";
+            this.ckbRead.UseVisualStyleBackColor = true;
+            this.ckbRead.CheckedChanged += new System.EventHandler(this.FlashOptCheckedChanged);
+            // 
             // cmbFormat
             // 
             this.cmbFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbFormat.FormattingEnabled = true;
-            this.cmbFormat.Location = new System.Drawing.Point(169, 20);
+            this.cmbFormat.Location = new System.Drawing.Point(8, 21);
             this.cmbFormat.Margin = new System.Windows.Forms.Padding(4);
             this.cmbFormat.Name = "cmbFormat";
             this.cmbFormat.Size = new System.Drawing.Size(87, 25);
@@ -220,21 +233,21 @@
             // ckbEEPROM
             // 
             this.ckbEEPROM.AutoSize = true;
-            this.ckbEEPROM.Location = new System.Drawing.Point(274, 21);
+            this.ckbEEPROM.Location = new System.Drawing.Point(103, 24);
             this.ckbEEPROM.Margin = new System.Windows.Forms.Padding(4);
             this.ckbEEPROM.Name = "ckbEEPROM";
             this.ckbEEPROM.Size = new System.Drawing.Size(78, 21);
             this.ckbEEPROM.TabIndex = 1;
             this.ckbEEPROM.Text = "EEPROM";
             this.ckbEEPROM.UseVisualStyleBackColor = true;
-            this.ckbEEPROM.CheckedChanged += new System.EventHandler(this.ckbEEPROM_CheckedChanged);
+            this.ckbEEPROM.CheckedChanged += new System.EventHandler(this.FlashOptCheckedChanged);
             // 
             // btnErase
             // 
-            this.btnErase.Location = new System.Drawing.Point(8, 19);
+            this.btnErase.Location = new System.Drawing.Point(315, 18);
             this.btnErase.Margin = new System.Windows.Forms.Padding(4);
             this.btnErase.Name = "btnErase";
-            this.btnErase.Size = new System.Drawing.Size(89, 28);
+            this.btnErase.Size = new System.Drawing.Size(82, 30);
             this.btnErase.TabIndex = 0;
             this.btnErase.Text = "Erase";
             this.btnErase.UseVisualStyleBackColor = true;
@@ -270,7 +283,7 @@
             this.MaximizeBox = false;
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "cade 0.3";
+            this.Text = "cade 0.4b";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
@@ -306,6 +319,7 @@
         private System.Windows.Forms.ToolStripMenuItem 清空ToolStripMenuItem;
         private System.Windows.Forms.CheckBox ckbEEPROM;
         private System.Windows.Forms.ComboBox cmbFormat;
+        private CheckBox ckbRead;
     }
 }
 

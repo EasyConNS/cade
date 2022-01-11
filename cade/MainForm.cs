@@ -7,7 +7,7 @@ namespace cade
     {
         private Settings settings = new();
         private Execute cmd;
-        public string port
+        public string Port
         {
             get { return cmbPort.Text.Trim(); }
             set { cmbPort.Text = value; }
@@ -48,9 +48,9 @@ namespace cade
         private void InitMCUs()
         {
             cmbMCU.Items.Clear();
-            cmbMCU.Items.Add(new Chip("ATmega32U4(m32u4)", "avr109", "m32u4", 32768, 1024));
-            cmbMCU.Items.Add(new Chip("ATmega16U2(m16u2)", "avr109", "m16u2", 16384, 512));
-            cmbMCU.Items.Add(new Chip("Teensy2pp(usb1286)", "teensy", "usb1286", 32768, 1024));
+            cmbMCU.Items.Add(new Chip("ATmega32U4", "avr109", "m32u4", 32768, 1024));
+            cmbMCU.Items.Add(new Chip("ATmega16U2", "avr109", "m16u2", 16384, 512));
+            cmbMCU.Items.Add(new Chip("Teensy2pp", "teensy", "usb1286", 32768, 1024));
             cmbMCU.SelectedIndex = 0;
         }
 
@@ -59,6 +59,9 @@ namespace cade
             cmbFormat.Items.Clear();
             cmbFormat.Items.Add(new Format("Auto", "a"));
             cmbFormat.Items.Add(new Format("Intel Hex", "i"));
+#if DEBUG
+            cmbFormat.Items.Add(new Format("Moto S-record", "s"));
+#endif
             cmbFormat.Items.Add(new Format("Raw", "r"));
             cmbFormat.SelectedIndex = 0;
 
@@ -68,7 +71,7 @@ namespace cade
             txtFilePath.Text = settings.filepath;
             cmbMCU.SelectedIndex = settings.device;
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void btnBrowse_Click(object sender, EventArgs e)
         {
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 txtFilePath.Text = openFileDialog1.FileName;
@@ -119,40 +122,56 @@ namespace cade
                 MessageBox.Show("文件格式不正确", this.Text);
                 return;
             }
-            var b = cmd.ExecCommand(getArgs());
+            if(ckbAdv.Checked)
+            {
+                if(ckbRead.Checked)
+                {
+                    // cannot be auto
+                    if("a" == (cmbFormat.SelectedItem as Format)?.FormatType)
+                    {
+                        MessageBox.Show("备份固件时格式不能为Auto", this.Text);
+                        return;
+                    }
+                }
+            }
+            var b = cmd.ExecCommand(GetArgs());
             if (b != 0)
             {
                 MessageBox.Show("执行出错");
             }
         }
 
-        private string getArgs()
+        private string GetArgs()
         {
-            string flashType = "flash"; // flash,eeprom
-            if (ckbEEPROM.Checked)
+            var flashType = "flash"; // flash,eeprom
+            if (ckbAdv.Checked && ckbEEPROM.Checked)
             {
                 flashType = "eeprom";
             }
-            string option = "w"; // w,r,v
-            string flashFormat = (cmbFormat.SelectedItem as Format).FormatType;
+            var option = "w"; // w,r,v
+            if (ckbAdv.Checked && ckbRead.Checked)
+            {
+                option = "r";
+            }
+            var flashFormat = (cmbFormat.SelectedItem as Format).FormatType;
 
             var args = "";
             args += " -c " + (cmbMCU.SelectedItem as Chip).Programer; // programmer
-            args += " -p" + (cmbMCU.SelectedItem as Chip).DeviceName; // partno
-            args += " -P" + cmbPort.Text; // port
-            args += " -D";
+            args += " -p " + (cmbMCU.SelectedItem as Chip).DeviceName; // partno
+            args += " -P " + cmbPort.Text; // port
+            args += " -D "; // Disable auto erase for flash
             args += $" -U {flashType}:{option}:\"{txtFilePath.Text}\":{flashFormat}";
             return args;
         }
 
         private void btnErase_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("是否需要擦除单片机?\n本操作有一定危险性，请确认你清楚自己在做什么", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
+            if (MessageBox.Show("是否需要擦除单片机?\n本操作具有一定危险性，请确认你清楚自己在做什么", "警告", MessageBoxButtons.OKCancel, MessageBoxIcon.Question) == DialogResult.OK)
             {
                 var args = "";
-                args += " -c avr109"; // programmer
-                args += " -p" + (cmbMCU.SelectedItem as Chip).DeviceName; // partno
-                args += " -P" + cmbPort.Text; // port
+                args += " -c " + (cmbMCU.SelectedItem as Chip).Programer; // programmer
+                args += " -p " + (cmbMCU.SelectedItem as Chip).DeviceName; // partno
+                args += " -P " + cmbPort.Text; // port
                 args += " -e";
                 cmd.ExecCommand(args);
             }
@@ -161,11 +180,12 @@ namespace cade
         private void btnHelp_Click(object sender, EventArgs e)
         {
             MessageBox.Show
-                (@"1、选择烧录文件(支持拖拽)
+                (@"1、选择需要烧录的文件(支持拖拽)
 2、Port下选择端口(单片机接入PC后[按复位键/短接RST和GND]自动识别)
  - 请确保PC上只接入一个USB串口设备，即单片机
 3、Device下选择单片机类型
-4、点击Flash!");
+4、点击FLASH!
+等待下方日志输出<Thank you>即成功");
         }
 
         private void 清空ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -173,21 +193,32 @@ namespace cade
             rtxtConsole.Clear();
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        private void ckbAdv_CheckedChanged(object sender, EventArgs e)
         {
             gpAdv.Visible = ckbAdv.Checked;
-        }
-
-        private void ckbEEPROM_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckbEEPROM.Checked)
+            if(gpAdv.Visible)
             {
-                btnProgram.Text = "EEPROM";
+                FlashOptCheckedChanged(sender, e);
             }
             else
             {
                 btnProgram.Text = "FLASH";
             }
+        }
+
+        private void FlashOptCheckedChanged(object sender, EventArgs e)
+        {
+            var txt = "FLASH";
+            if (ckbEEPROM.Checked)
+            {
+                txt = "EEPROM";
+            }
+            if (ckbRead.Checked)
+            {
+                txt += "(r)";
+            }
+
+            btnProgram.Text = txt;
         }
     }
 }

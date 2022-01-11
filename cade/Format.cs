@@ -1,6 +1,6 @@
 ﻿namespace cade
 {
-    class Format
+    record Format
     {
         public readonly string DisplayName;
         public readonly string FormatType;
