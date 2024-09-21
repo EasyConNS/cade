@@ -95,6 +95,7 @@ namespace cade
 
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
+            cmd.Kill();
             settings.filepath = txtFilePath.Text;
             settings.device = cmbMCU.SelectedIndex;
             settings.Save();
@@ -134,10 +135,18 @@ namespace cade
                     }
                 }
             }
-            var b = cmd.ExecCommand(GetArgs());
-            if (b != 0)
+
+            if (!cmd.Prepare(out var msg))
             {
-                MessageBox.Show("执行出错");
+                MessageBox.Show(msg);
+                return;
+            }
+
+            try
+            {
+                cmd.ExecCommand(GetArgs());
+            } catch (Exception ex) {
+                MessageBox.Show($"执行出错:{ex.Message}");
             }
         }
 

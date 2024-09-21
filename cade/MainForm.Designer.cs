@@ -28,276 +28,274 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.btnProgram = new System.Windows.Forms.Button();
-            this.gbFilePath = new System.Windows.Forms.GroupBox();
-            this.txtFilePath = new System.Windows.Forms.TextBox();
-            this.btnBrowse = new System.Windows.Forms.Button();
-            this.gpPort = new System.Windows.Forms.GroupBox();
-            this.cmbPort = new System.Windows.Forms.ComboBox();
-            this.gpDevice = new System.Windows.Forms.GroupBox();
-            this.cmbMCU = new System.Windows.Forms.ComboBox();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.rtxtConsole = new System.Windows.Forms.RichTextBox();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.清空ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ckbAdv = new System.Windows.Forms.CheckBox();
-            this.gpAdv = new System.Windows.Forms.GroupBox();
-            this.ckbRead = new System.Windows.Forms.CheckBox();
-            this.cmbFormat = new System.Windows.Forms.ComboBox();
-            this.ckbEEPROM = new System.Windows.Forms.CheckBox();
-            this.btnErase = new System.Windows.Forms.Button();
-            this.btnHelp = new System.Windows.Forms.Button();
-            this.gbFilePath.SuspendLayout();
-            this.gpPort.SuspendLayout();
-            this.gpDevice.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.gpAdv.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            btnProgram = new Button();
+            gbFilePath = new GroupBox();
+            txtFilePath = new TextBox();
+            btnBrowse = new Button();
+            gpPort = new GroupBox();
+            cmbPort = new ComboBox();
+            gpDevice = new GroupBox();
+            cmbMCU = new ComboBox();
+            openFileDialog1 = new OpenFileDialog();
+            rtxtConsole = new RichTextBox();
+            contextMenuStrip1 = new ContextMenuStrip(components);
+            清空ToolStripMenuItem = new ToolStripMenuItem();
+            ckbAdv = new CheckBox();
+            gpAdv = new GroupBox();
+            ckbRead = new CheckBox();
+            cmbFormat = new ComboBox();
+            ckbEEPROM = new CheckBox();
+            btnErase = new Button();
+            btnHelp = new Button();
+            gbFilePath.SuspendLayout();
+            gpPort.SuspendLayout();
+            gpDevice.SuspendLayout();
+            contextMenuStrip1.SuspendLayout();
+            gpAdv.SuspendLayout();
+            SuspendLayout();
             // 
             // btnProgram
             // 
-            this.btnProgram.Location = new System.Drawing.Point(375, 74);
-            this.btnProgram.Margin = new System.Windows.Forms.Padding(4);
-            this.btnProgram.Name = "btnProgram";
-            this.btnProgram.Size = new System.Drawing.Size(133, 60);
-            this.btnProgram.TabIndex = 2;
-            this.btnProgram.Text = "FLASH";
-            this.btnProgram.UseVisualStyleBackColor = true;
-            this.btnProgram.Click += new System.EventHandler(this.btnProgram_Click);
+            btnProgram.Location = new Point(482, 87);
+            btnProgram.Margin = new Padding(5, 5, 5, 5);
+            btnProgram.Name = "btnProgram";
+            btnProgram.Size = new Size(171, 71);
+            btnProgram.TabIndex = 2;
+            btnProgram.Text = "FLASH";
+            btnProgram.UseVisualStyleBackColor = true;
+            btnProgram.Click += btnProgram_Click;
             // 
             // gbFilePath
             // 
-            this.gbFilePath.Controls.Add(this.txtFilePath);
-            this.gbFilePath.Controls.Add(this.btnBrowse);
-            this.gbFilePath.Location = new System.Drawing.Point(15, 10);
-            this.gbFilePath.Margin = new System.Windows.Forms.Padding(4);
-            this.gbFilePath.Name = "gbFilePath";
-            this.gbFilePath.Padding = new System.Windows.Forms.Padding(4);
-            this.gbFilePath.Size = new System.Drawing.Size(493, 60);
-            this.gbFilePath.TabIndex = 5;
-            this.gbFilePath.TabStop = false;
-            this.gbFilePath.Text = "Flash/EEPROM";
+            gbFilePath.Controls.Add(txtFilePath);
+            gbFilePath.Controls.Add(btnBrowse);
+            gbFilePath.Location = new Point(19, 12);
+            gbFilePath.Margin = new Padding(5, 5, 5, 5);
+            gbFilePath.Name = "gbFilePath";
+            gbFilePath.Padding = new Padding(5, 5, 5, 5);
+            gbFilePath.Size = new Size(634, 71);
+            gbFilePath.TabIndex = 5;
+            gbFilePath.TabStop = false;
+            gbFilePath.Text = "Flash/EEPROM";
             // 
             // txtFilePath
             // 
-            this.txtFilePath.AcceptsTab = true;
-            this.txtFilePath.Location = new System.Drawing.Point(8, 23);
-            this.txtFilePath.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFilePath.Name = "txtFilePath";
-            this.txtFilePath.Size = new System.Drawing.Size(389, 23);
-            this.txtFilePath.TabIndex = 3;
+            txtFilePath.AcceptsTab = true;
+            txtFilePath.Location = new Point(10, 27);
+            txtFilePath.Margin = new Padding(5, 5, 5, 5);
+            txtFilePath.Name = "txtFilePath";
+            txtFilePath.Size = new Size(499, 27);
+            txtFilePath.TabIndex = 3;
             // 
             // btnBrowse
             // 
-            this.btnBrowse.Location = new System.Drawing.Point(422, 23);
-            this.btnBrowse.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBrowse.Name = "btnBrowse";
-            this.btnBrowse.Size = new System.Drawing.Size(54, 23);
-            this.btnBrowse.TabIndex = 2;
-            this.btnBrowse.Text = "...";
-            this.btnBrowse.UseVisualStyleBackColor = true;
-            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
+            btnBrowse.Location = new Point(543, 27);
+            btnBrowse.Margin = new Padding(5, 5, 5, 5);
+            btnBrowse.Name = "btnBrowse";
+            btnBrowse.Size = new Size(69, 27);
+            btnBrowse.TabIndex = 2;
+            btnBrowse.Text = "...";
+            btnBrowse.UseVisualStyleBackColor = true;
+            btnBrowse.Click += btnBrowse_Click;
             // 
             // gpPort
             // 
-            this.gpPort.Controls.Add(this.cmbPort);
-            this.gpPort.Location = new System.Drawing.Point(15, 74);
-            this.gpPort.Margin = new System.Windows.Forms.Padding(4);
-            this.gpPort.Name = "gpPort";
-            this.gpPort.Padding = new System.Windows.Forms.Padding(4);
-            this.gpPort.Size = new System.Drawing.Size(114, 60);
-            this.gpPort.TabIndex = 6;
-            this.gpPort.TabStop = false;
-            this.gpPort.Text = "Port";
+            gpPort.Controls.Add(cmbPort);
+            gpPort.Location = new Point(19, 87);
+            gpPort.Margin = new Padding(5, 5, 5, 5);
+            gpPort.Name = "gpPort";
+            gpPort.Padding = new Padding(5, 5, 5, 5);
+            gpPort.Size = new Size(147, 71);
+            gpPort.TabIndex = 6;
+            gpPort.TabStop = false;
+            gpPort.Text = "Port";
             // 
             // cmbPort
             // 
-            this.cmbPort.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPort.FormattingEnabled = true;
-            this.cmbPort.Location = new System.Drawing.Point(7, 21);
-            this.cmbPort.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbPort.Name = "cmbPort";
-            this.cmbPort.Size = new System.Drawing.Size(100, 25);
-            this.cmbPort.TabIndex = 4;
+            cmbPort.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbPort.FormattingEnabled = true;
+            cmbPort.Location = new Point(9, 25);
+            cmbPort.Margin = new Padding(5, 5, 5, 5);
+            cmbPort.Name = "cmbPort";
+            cmbPort.Size = new Size(127, 28);
+            cmbPort.TabIndex = 4;
             // 
             // gpDevice
             // 
-            this.gpDevice.Controls.Add(this.cmbMCU);
-            this.gpDevice.Location = new System.Drawing.Point(139, 74);
-            this.gpDevice.Margin = new System.Windows.Forms.Padding(4);
-            this.gpDevice.Name = "gpDevice";
-            this.gpDevice.Padding = new System.Windows.Forms.Padding(4);
-            this.gpDevice.Size = new System.Drawing.Size(158, 60);
-            this.gpDevice.TabIndex = 7;
-            this.gpDevice.TabStop = false;
-            this.gpDevice.Text = "Device";
+            gpDevice.Controls.Add(cmbMCU);
+            gpDevice.Location = new Point(179, 87);
+            gpDevice.Margin = new Padding(5, 5, 5, 5);
+            gpDevice.Name = "gpDevice";
+            gpDevice.Padding = new Padding(5, 5, 5, 5);
+            gpDevice.Size = new Size(203, 71);
+            gpDevice.TabIndex = 7;
+            gpDevice.TabStop = false;
+            gpDevice.Text = "Device";
             // 
             // cmbMCU
             // 
-            this.cmbMCU.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbMCU.FormattingEnabled = true;
-            this.cmbMCU.Location = new System.Drawing.Point(7, 21);
-            this.cmbMCU.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbMCU.Name = "cmbMCU";
-            this.cmbMCU.Size = new System.Drawing.Size(138, 25);
-            this.cmbMCU.TabIndex = 5;
+            cmbMCU.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbMCU.FormattingEnabled = true;
+            cmbMCU.Location = new Point(9, 25);
+            cmbMCU.Margin = new Padding(5, 5, 5, 5);
+            cmbMCU.Name = "cmbMCU";
+            cmbMCU.Size = new Size(176, 28);
+            cmbMCU.TabIndex = 5;
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.Filter = "Hex 文件 (.hex)|*.hex|EEP 文件 (.eep)|*.eep|BIN 文件 (.bin)|*.bin";
+            openFileDialog1.Filter = "Hex 文件 (.hex)|*.hex|EEP 文件 (.eep)|*.eep|BIN 文件 (.bin)|*.bin";
             // 
             // rtxtConsole
             // 
-            this.rtxtConsole.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.rtxtConsole.BackColor = System.Drawing.Color.Black;
-            this.rtxtConsole.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.rtxtConsole.ContextMenuStrip = this.contextMenuStrip1;
-            this.rtxtConsole.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.rtxtConsole.ForeColor = System.Drawing.Color.White;
-            this.rtxtConsole.Location = new System.Drawing.Point(15, 204);
-            this.rtxtConsole.Margin = new System.Windows.Forms.Padding(4);
-            this.rtxtConsole.Name = "rtxtConsole";
-            this.rtxtConsole.ReadOnly = true;
-            this.rtxtConsole.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedVertical;
-            this.rtxtConsole.Size = new System.Drawing.Size(500, 113);
-            this.rtxtConsole.TabIndex = 14;
-            this.rtxtConsole.Text = "";
-            this.rtxtConsole.WordWrap = false;
+            rtxtConsole.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            rtxtConsole.BackColor = Color.Black;
+            rtxtConsole.BorderStyle = BorderStyle.None;
+            rtxtConsole.ContextMenuStrip = contextMenuStrip1;
+            rtxtConsole.Font = new Font("Consolas", 8.25F);
+            rtxtConsole.ForeColor = Color.White;
+            rtxtConsole.Location = new Point(19, 240);
+            rtxtConsole.Margin = new Padding(5, 5, 5, 5);
+            rtxtConsole.Name = "rtxtConsole";
+            rtxtConsole.ReadOnly = true;
+            rtxtConsole.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
+            rtxtConsole.Size = new Size(643, 133);
+            rtxtConsole.TabIndex = 14;
+            rtxtConsole.Text = "";
+            rtxtConsole.WordWrap = false;
             // 
             // contextMenuStrip1
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.清空ToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(101, 26);
+            contextMenuStrip1.ImageScalingSize = new Size(20, 20);
+            contextMenuStrip1.Items.AddRange(new ToolStripItem[] { 清空ToolStripMenuItem });
+            contextMenuStrip1.Name = "contextMenuStrip1";
+            contextMenuStrip1.Size = new Size(109, 28);
             // 
             // 清空ToolStripMenuItem
             // 
-            this.清空ToolStripMenuItem.Name = "清空ToolStripMenuItem";
-            this.清空ToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
-            this.清空ToolStripMenuItem.Text = "清空";
-            this.清空ToolStripMenuItem.Click += new System.EventHandler(this.清空ToolStripMenuItem_Click);
+            清空ToolStripMenuItem.Name = "清空ToolStripMenuItem";
+            清空ToolStripMenuItem.Size = new Size(108, 24);
+            清空ToolStripMenuItem.Text = "清空";
+            清空ToolStripMenuItem.Click += 清空ToolStripMenuItem_Click;
             // 
             // ckbAdv
             // 
-            this.ckbAdv.AutoSize = true;
-            this.ckbAdv.Location = new System.Drawing.Point(15, 158);
-            this.ckbAdv.Margin = new System.Windows.Forms.Padding(4);
-            this.ckbAdv.Name = "ckbAdv";
-            this.ckbAdv.Size = new System.Drawing.Size(84, 21);
-            this.ckbAdv.TabIndex = 15;
-            this.ckbAdv.Text = "Advanced";
-            this.ckbAdv.UseVisualStyleBackColor = true;
-            this.ckbAdv.CheckedChanged += new System.EventHandler(this.ckbAdv_CheckedChanged);
+            ckbAdv.AutoSize = true;
+            ckbAdv.Location = new Point(19, 186);
+            ckbAdv.Margin = new Padding(5, 5, 5, 5);
+            ckbAdv.Name = "ckbAdv";
+            ckbAdv.Size = new Size(104, 24);
+            ckbAdv.TabIndex = 15;
+            ckbAdv.Text = "Advanced";
+            ckbAdv.UseVisualStyleBackColor = true;
+            ckbAdv.CheckedChanged += ckbAdv_CheckedChanged;
             // 
             // gpAdv
             // 
-            this.gpAdv.Controls.Add(this.ckbRead);
-            this.gpAdv.Controls.Add(this.cmbFormat);
-            this.gpAdv.Controls.Add(this.ckbEEPROM);
-            this.gpAdv.Controls.Add(this.btnErase);
-            this.gpAdv.Location = new System.Drawing.Point(107, 136);
-            this.gpAdv.Margin = new System.Windows.Forms.Padding(4);
-            this.gpAdv.Name = "gpAdv";
-            this.gpAdv.Padding = new System.Windows.Forms.Padding(4);
-            this.gpAdv.Size = new System.Drawing.Size(402, 60);
-            this.gpAdv.TabIndex = 16;
-            this.gpAdv.TabStop = false;
-            this.gpAdv.Text = "高级功能";
-            this.gpAdv.Visible = false;
+            gpAdv.Controls.Add(ckbRead);
+            gpAdv.Controls.Add(cmbFormat);
+            gpAdv.Controls.Add(ckbEEPROM);
+            gpAdv.Controls.Add(btnErase);
+            gpAdv.Location = new Point(138, 160);
+            gpAdv.Margin = new Padding(5, 5, 5, 5);
+            gpAdv.Name = "gpAdv";
+            gpAdv.Padding = new Padding(5, 5, 5, 5);
+            gpAdv.Size = new Size(517, 71);
+            gpAdv.TabIndex = 16;
+            gpAdv.TabStop = false;
+            gpAdv.Text = "高级功能";
+            gpAdv.Visible = false;
             // 
             // ckbRead
             // 
-            this.ckbRead.AutoSize = true;
-            this.ckbRead.Location = new System.Drawing.Point(188, 25);
-            this.ckbRead.Name = "ckbRead";
-            this.ckbRead.Size = new System.Drawing.Size(108, 21);
-            this.ckbRead.TabIndex = 6;
-            this.ckbRead.Text = "Read(Backup)";
-            this.ckbRead.UseVisualStyleBackColor = true;
-            this.ckbRead.CheckedChanged += new System.EventHandler(this.FlashOptCheckedChanged);
+            ckbRead.AutoSize = true;
+            ckbRead.Location = new Point(242, 29);
+            ckbRead.Margin = new Padding(4, 4, 4, 4);
+            ckbRead.Name = "ckbRead";
+            ckbRead.Size = new Size(130, 24);
+            ckbRead.TabIndex = 6;
+            ckbRead.Text = "Read(Backup)";
+            ckbRead.UseVisualStyleBackColor = true;
+            ckbRead.CheckedChanged += FlashOptCheckedChanged;
             // 
             // cmbFormat
             // 
-            this.cmbFormat.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbFormat.FormattingEnabled = true;
-            this.cmbFormat.Location = new System.Drawing.Point(8, 21);
-            this.cmbFormat.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbFormat.Name = "cmbFormat";
-            this.cmbFormat.Size = new System.Drawing.Size(87, 25);
-            this.cmbFormat.TabIndex = 5;
+            cmbFormat.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbFormat.FormattingEnabled = true;
+            cmbFormat.Location = new Point(10, 25);
+            cmbFormat.Margin = new Padding(5, 5, 5, 5);
+            cmbFormat.Name = "cmbFormat";
+            cmbFormat.Size = new Size(111, 28);
+            cmbFormat.TabIndex = 5;
             // 
             // ckbEEPROM
             // 
-            this.ckbEEPROM.AutoSize = true;
-            this.ckbEEPROM.Location = new System.Drawing.Point(103, 24);
-            this.ckbEEPROM.Margin = new System.Windows.Forms.Padding(4);
-            this.ckbEEPROM.Name = "ckbEEPROM";
-            this.ckbEEPROM.Size = new System.Drawing.Size(78, 21);
-            this.ckbEEPROM.TabIndex = 1;
-            this.ckbEEPROM.Text = "EEPROM";
-            this.ckbEEPROM.UseVisualStyleBackColor = true;
-            this.ckbEEPROM.CheckedChanged += new System.EventHandler(this.FlashOptCheckedChanged);
+            ckbEEPROM.AutoSize = true;
+            ckbEEPROM.Location = new Point(132, 28);
+            ckbEEPROM.Margin = new Padding(5, 5, 5, 5);
+            ckbEEPROM.Name = "ckbEEPROM";
+            ckbEEPROM.Size = new Size(93, 24);
+            ckbEEPROM.TabIndex = 1;
+            ckbEEPROM.Text = "EEPROM";
+            ckbEEPROM.UseVisualStyleBackColor = true;
+            ckbEEPROM.CheckedChanged += FlashOptCheckedChanged;
             // 
             // btnErase
             // 
-            this.btnErase.Location = new System.Drawing.Point(315, 18);
-            this.btnErase.Margin = new System.Windows.Forms.Padding(4);
-            this.btnErase.Name = "btnErase";
-            this.btnErase.Size = new System.Drawing.Size(82, 30);
-            this.btnErase.TabIndex = 0;
-            this.btnErase.Text = "Erase";
-            this.btnErase.UseVisualStyleBackColor = true;
-            this.btnErase.Click += new System.EventHandler(this.btnErase_Click);
+            btnErase.Location = new Point(405, 21);
+            btnErase.Margin = new Padding(5, 5, 5, 5);
+            btnErase.Name = "btnErase";
+            btnErase.Size = new Size(105, 35);
+            btnErase.TabIndex = 0;
+            btnErase.Text = "Erase";
+            btnErase.UseVisualStyleBackColor = true;
+            btnErase.Click += btnErase_Click;
             // 
             // btnHelp
             // 
-            this.btnHelp.Location = new System.Drawing.Point(308, 74);
-            this.btnHelp.Margin = new System.Windows.Forms.Padding(4);
-            this.btnHelp.Name = "btnHelp";
-            this.btnHelp.Size = new System.Drawing.Size(49, 60);
-            this.btnHelp.TabIndex = 17;
-            this.btnHelp.Text = "帮助";
-            this.btnHelp.UseVisualStyleBackColor = true;
-            this.btnHelp.Click += new System.EventHandler(this.btnHelp_Click);
+            btnHelp.Location = new Point(396, 87);
+            btnHelp.Margin = new Padding(5, 5, 5, 5);
+            btnHelp.Name = "btnHelp";
+            btnHelp.Size = new Size(63, 71);
+            btnHelp.TabIndex = 17;
+            btnHelp.Text = "帮助";
+            btnHelp.UseVisualStyleBackColor = true;
+            btnHelp.Click += btnHelp_Click;
             // 
             // MainForm
             // 
-            this.AllowDrop = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(517, 320);
-            this.Controls.Add(this.btnHelp);
-            this.Controls.Add(this.gpAdv);
-            this.Controls.Add(this.ckbAdv);
-            this.Controls.Add(this.rtxtConsole);
-            this.Controls.Add(this.gpDevice);
-            this.Controls.Add(this.gpPort);
-            this.Controls.Add(this.gbFilePath);
-            this.Controls.Add(this.btnProgram);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximizeBox = false;
-            this.Name = "MainForm";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "cade 0.4b";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
-            this.Load += new System.EventHandler(this.MainForm_Load);
-            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.MainForm_DragDrop);
-            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.MainForm_DragEnter);
-            this.gbFilePath.ResumeLayout(false);
-            this.gbFilePath.PerformLayout();
-            this.gpPort.ResumeLayout(false);
-            this.gpDevice.ResumeLayout(false);
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.gpAdv.ResumeLayout(false);
-            this.gpAdv.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AllowDrop = true;
+            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(665, 376);
+            Controls.Add(btnHelp);
+            Controls.Add(gpAdv);
+            Controls.Add(ckbAdv);
+            Controls.Add(rtxtConsole);
+            Controls.Add(gpDevice);
+            Controls.Add(gpPort);
+            Controls.Add(gbFilePath);
+            Controls.Add(btnProgram);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            Margin = new Padding(5, 5, 5, 5);
+            MaximizeBox = false;
+            Name = "MainForm";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "cade 0.5";
+            FormClosing += MainForm_FormClosing;
+            Load += MainForm_Load;
+            DragDrop += MainForm_DragDrop;
+            DragEnter += MainForm_DragEnter;
+            gbFilePath.ResumeLayout(false);
+            gbFilePath.PerformLayout();
+            gpPort.ResumeLayout(false);
+            gpDevice.ResumeLayout(false);
+            contextMenuStrip1.ResumeLayout(false);
+            gpAdv.ResumeLayout(false);
+            gpAdv.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
