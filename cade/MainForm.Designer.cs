@@ -146,16 +146,17 @@
             // rtxtConsole
             // 
             rtxtConsole.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            rtxtConsole.BackColor = Color.Black;
+            rtxtConsole.BackColor = Color.FromArgb(30, 30, 30);
             rtxtConsole.BorderStyle = BorderStyle.None;
             rtxtConsole.ContextMenuStrip = contextMenuStrip1;
+            rtxtConsole.DetectUrls = false;
             rtxtConsole.Font = new Font("Consolas", 8.25F);
             rtxtConsole.ForeColor = Color.White;
+            rtxtConsole.HideSelection = false;
             rtxtConsole.Location = new Point(19, 174);
             rtxtConsole.Margin = new Padding(5);
             rtxtConsole.Name = "rtxtConsole";
             rtxtConsole.ReadOnly = true;
-            rtxtConsole.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
             rtxtConsole.Size = new Size(766, 347);
             rtxtConsole.TabIndex = 14;
             rtxtConsole.Text = "";
