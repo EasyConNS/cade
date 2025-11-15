@@ -1,4 +1,4 @@
-﻿namespace cade.Usb.Bootloader;
+﻿namespace Usb.Bootloader;
 
 class Stm32DuinoDevice : BootloaderDevice
 {
@@ -17,7 +17,7 @@ class Stm32DuinoDevice : BootloaderDevice
         }
         else
         {
-            PrintMessage("Only firmware files in .bin format can be flashed with dfu-util!", MessageType.Error);
+            PrintErrorMessage("Only firmware files in .bin format can be flashed with dfu-util!");
         }
     }
 }

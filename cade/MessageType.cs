@@ -7,8 +7,6 @@ public enum MessageType
     CommandError,
     CommandOutput,
     Error,
-    Hid,
-    HidOutput,
     Info,
     Usb
 }

@@ -1,8 +1,9 @@
 ﻿using System.Diagnostics;
 using System.Management;
 
+using cade;
 using cade.Helpers;
-namespace cade.Usb.Bootloader
+namespace Usb.Bootloader
 {
     public abstract class BootloaderDevice : IUsbDevice
     {
@@ -123,6 +124,11 @@ namespace cade.Usb.Bootloader
             {
                 PrintMessage(e.Data, MessageType.CommandError);
             }
+        }
+
+        protected void PrintErrorMessage(string message)
+        {
+            PrintMessage(message, MessageType.Error);
         }
 
         protected void PrintMessage(string message, MessageType type)

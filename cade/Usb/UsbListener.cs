@@ -1,8 +1,9 @@
-﻿using cade.Usb.Bootloader;
+﻿using Usb.Bootloader;
+using cade;
 using System.Management;
 using System.Text.RegularExpressions;
 
-namespace cade.Usb
+namespace Usb
 {
     public class UsbListener: IDisposable
     {
@@ -14,9 +15,6 @@ namespace cade.Usb
 
         public delegate void BootloaderDeviceEventDelegate(BootloaderDevice device);
         public delegate void FlashOutputReceivedDelegate(BootloaderDevice device, string data, MessageType type);
-
-        public UsbDeviceEventDelegate usbDeviceConnected;
-        public UsbDeviceEventDelegate usbDeviceDisconnected;
 
         public BootloaderDeviceEventDelegate bootloaderDeviceConnected;
         public BootloaderDeviceEventDelegate bootloaderDeviceDisconnected;
@@ -39,14 +37,10 @@ namespace cade.Usb
                         IUsbDevice usbDevice = CreateDevice(device);
                         Devices.Add(usbDevice);
 
-                        if (usbDevice is BootloaderDevice)
+                        if (usbDevice is BootloaderDevice blDevice)
                         {
-                            bootloaderDeviceConnected?.Invoke(usbDevice as BootloaderDevice);
-                            (usbDevice as BootloaderDevice).outputReceived = FlashOutputReceived;
-                        }
-                        else
-                        {
-                            usbDeviceConnected?.Invoke(usbDevice as UsbDevice);
+                            bootloaderDeviceConnected?.Invoke(blDevice);
+                            blDevice.outputReceived = FlashOutputReceived;
                         }
                     }
                 }
@@ -61,14 +55,10 @@ namespace cade.Usb
                     {
                         Devices.Remove(device);
 
-                        if (device is BootloaderDevice)
+                        if (device is BootloaderDevice blDevice)
                         {
-                            bootloaderDeviceDisconnected?.Invoke(device as BootloaderDevice);
-                            (device as BootloaderDevice).outputReceived = null;
-                        }
-                        else
-                        {
-                            usbDeviceDisconnected?.Invoke(device as UsbDevice);
+                            bootloaderDeviceDisconnected?.Invoke(blDevice);
+                            blDevice.outputReceived = null;
                         }
                     }
                 }

@@ -1,4 +1,4 @@
-﻿namespace cade.Usb.Bootloader;
+﻿namespace Usb.Bootloader;
 
 class StmHidDevice : BootloaderDevice
 {
@@ -13,11 +13,11 @@ class StmHidDevice : BootloaderDevice
     {
         if (Path.GetExtension(file)?.ToLower() == ".bin")
         {
-            await RunProcessAsync("hid-flash.exe", $"\"{file}\" COM1");
+            await RunProcessAsync("hid-flash.exe", $"\"{file}\" COM3");
         }
         else
         {
-            PrintMessage("Only firmware files in .bin format can be flashed with hid-flash!", MessageType.Error);
+            PrintErrorMessage("Only firmware files in .bin format can be flashed with hid-flash!");
         }
     }
 }

@@ -6,10 +6,11 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
-    <StartupObject>cade.Program</StartupObject>
-	  <Version>0.5</Version>
+	<Version>0.5</Version>
   </PropertyGroup>
-
+	<PropertyGroup>
+		<ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+	</PropertyGroup>
   <ItemGroup>
 	<PackageReference Include="System.Management" Version="10.0.0" />
   </ItemGroup>
@@ -27,6 +28,9 @@
 	  <EmbeddedResource Include="Resources\avrdude.exe" />
 	  <EmbeddedResource Include="Resources\avrdude.conf" />
 	  <EmbeddedResource Include="Resources\reset.eep" />
+	  <EmbeddedResource Include="Resources\libftdi1.dll" />
+	  <EmbeddedResource Include="Resources\libhidapi-0.dll" />
+	  <EmbeddedResource Include="Resources\libusb-0-1-4.dll" />
 	  
 	  <EmbeddedResource Include="Resources\dfu-util.exe" />
 	  <EmbeddedResource Include="Resources\teensy_loader_cli.exe" />

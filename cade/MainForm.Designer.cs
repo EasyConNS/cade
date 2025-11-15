@@ -38,7 +38,7 @@
             gpDevice = new GroupBox();
             cmbMCU = new MicrocontrollerSelector();
             openFileDialog1 = new OpenFileDialog();
-            rtxtConsole = new RichTextBox();
+            rtxtConsole = new LogTextBox();
             contextMenuStrip1 = new ContextMenuStrip(components);
             清空ToolStripMenuItem = new ToolStripMenuItem();
             ckbAutoFlash = new CheckBox();
@@ -51,7 +51,7 @@
             // 
             // btnProgram
             // 
-            btnProgram.Location = new Point(474, 93);
+            btnProgram.Location = new Point(560, 93);
             btnProgram.Margin = new Padding(5);
             btnProgram.Name = "btnProgram";
             btnProgram.Size = new Size(104, 37);
@@ -68,7 +68,7 @@
             gbFilePath.Margin = new Padding(5);
             gbFilePath.Name = "gbFilePath";
             gbFilePath.Padding = new Padding(5);
-            gbFilePath.Size = new Size(634, 71);
+            gbFilePath.Size = new Size(757, 71);
             gbFilePath.TabIndex = 5;
             gbFilePath.TabStop = false;
             gbFilePath.Text = "file";
@@ -79,12 +79,12 @@
             txtFilePath.Location = new Point(10, 27);
             txtFilePath.Margin = new Padding(5);
             txtFilePath.Name = "txtFilePath";
-            txtFilePath.Size = new Size(499, 27);
+            txtFilePath.Size = new Size(635, 27);
             txtFilePath.TabIndex = 3;
             // 
             // btnBrowse
             // 
-            btnBrowse.Location = new Point(543, 27);
+            btnBrowse.Location = new Point(655, 27);
             btnBrowse.Margin = new Padding(5);
             btnBrowse.Name = "btnBrowse";
             btnBrowse.Size = new Size(69, 27);
@@ -100,7 +100,7 @@
             gpPort.Margin = new Padding(5);
             gpPort.Name = "gpPort";
             gpPort.Padding = new Padding(5);
-            gpPort.Size = new Size(232, 71);
+            gpPort.Size = new Size(315, 71);
             gpPort.TabIndex = 6;
             gpPort.TabStop = false;
             gpPort.Text = "Target";
@@ -112,13 +112,13 @@
             cmbTarget.Location = new Point(9, 25);
             cmbTarget.Margin = new Padding(5);
             cmbTarget.Name = "cmbTarget";
-            cmbTarget.Size = new Size(213, 28);
+            cmbTarget.Size = new Size(297, 28);
             cmbTarget.TabIndex = 4;
             // 
             // gpDevice
             // 
             gpDevice.Controls.Add(cmbMCU);
-            gpDevice.Location = new Point(261, 87);
+            gpDevice.Location = new Point(344, 87);
             gpDevice.Margin = new Padding(5);
             gpDevice.Name = "gpDevice";
             gpDevice.Padding = new Padding(5);
@@ -156,7 +156,7 @@
             rtxtConsole.Name = "rtxtConsole";
             rtxtConsole.ReadOnly = true;
             rtxtConsole.ScrollBars = RichTextBoxScrollBars.ForcedVertical;
-            rtxtConsole.Size = new Size(643, 199);
+            rtxtConsole.Size = new Size(766, 347);
             rtxtConsole.TabIndex = 14;
             rtxtConsole.Text = "";
             rtxtConsole.WordWrap = false;
@@ -178,7 +178,7 @@
             // ckbAutoFlash
             // 
             ckbAutoFlash.AutoSize = true;
-            ckbAutoFlash.Location = new Point(474, 134);
+            ckbAutoFlash.Location = new Point(560, 134);
             ckbAutoFlash.Margin = new Padding(5);
             ckbAutoFlash.Name = "ckbAutoFlash";
             ckbAutoFlash.Size = new Size(91, 24);
@@ -188,10 +188,10 @@
             // 
             // btnHelp
             // 
-            btnHelp.Location = new Point(588, 93);
+            btnHelp.Location = new Point(674, 93);
             btnHelp.Margin = new Padding(5);
             btnHelp.Name = "btnHelp";
-            btnHelp.Size = new Size(63, 71);
+            btnHelp.Size = new Size(102, 71);
             btnHelp.TabIndex = 17;
             btnHelp.Text = "帮助";
             btnHelp.UseVisualStyleBackColor = true;
@@ -202,7 +202,7 @@
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(665, 376);
+            ClientSize = new Size(791, 523);
             Controls.Add(btnHelp);
             Controls.Add(ckbAutoFlash);
             Controls.Add(rtxtConsole);
@@ -215,7 +215,7 @@
             MaximizeBox = false;
             Name = "MainForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "cade 0.5";
+            Text = "伊机控烧录工具";
             FormClosing += MainForm_FormClosing;
             Load += MainForm_Load;
             Shown += MainForm_Shown;
@@ -240,7 +240,7 @@
         private System.Windows.Forms.GroupBox gpDevice;
         private MicrocontrollerSelector cmbMCU;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.RichTextBox rtxtConsole;
+        private LogTextBox rtxtConsole;
         private System.Windows.Forms.CheckBox ckbAutoFlash;
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

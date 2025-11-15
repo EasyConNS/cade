@@ -1,4 +1,4 @@
-﻿namespace cade.Usb.Bootloader;
+﻿namespace Usb.Bootloader;
 
 public enum BootloaderType
 {

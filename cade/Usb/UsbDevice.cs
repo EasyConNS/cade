@@ -1,8 +1,7 @@
-﻿using System;
-using System.Management;
+﻿using System.Management;
 using System.Text.RegularExpressions;
 
-namespace cade.Usb
+namespace Usb
 {
     public class UsbDevice : IUsbDevice
     {

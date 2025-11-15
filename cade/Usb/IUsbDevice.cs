@@ -1,6 +1,6 @@
 ﻿using System.Management;
 
-namespace cade.Usb
+namespace Usb
 {
     public interface IUsbDevice
     {
