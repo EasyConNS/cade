@@ -10,3 +10,7 @@ v0.5更新:
 引入QMK_Toolbox架构（https://github.com/qmk/qmk_toolbox）
 自动识别插入的设备
 勾选自动烧录后当插入已知设备并进入bootloader模式时自动刷入选择的固件
+
+支持：
+avr系列（UNO,Leonardo,Teensy）
+stm32系列(F103,F401,F411)

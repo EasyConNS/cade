@@ -217,10 +217,10 @@ namespace cade
         {
             MessageBox.Show
                 (@"1、选择需要烧录的固件文件(支持拖拽)
-2、Port下选择端口(单片机接入PC后[按复位键/短接RST和GND]自动识别)
- - 请确保PC上只接入一个USB串口设备，即单片机
-3、Device下选择单片机类型
-4、点击FLASH!
+2、Device下选择单片机类型
+3、将单片机插入电脑进入bootloader模式(AVR单片机接入PC后[按复位键/短接RST和GND]自动识别)
+4、点击烧录
+勾选自动烧录后如果插入可识别的单片机则自动开始烧录
 等待下方日志输出<Thank you>即成功");
         }
 
