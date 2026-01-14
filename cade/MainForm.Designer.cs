@@ -1,4 +1,4 @@
-﻿namespace cade
+namespace cade
 {
     partial class MainForm
     {
@@ -43,10 +43,16 @@
             清空ToolStripMenuItem = new ToolStripMenuItem();
             ckbAutoFlash = new CheckBox();
             btnHelp = new Button();
+            menuStrip1 = new MenuStrip();
+            工具ToolStripMenuItem = new ToolStripMenuItem();
+            hex转BinToolStripMenuItem = new ToolStripMenuItem();
+            关于ToolStripMenuItem = new ToolStripMenuItem();
+            saveFileDialog1 = new SaveFileDialog();
             gbFilePath.SuspendLayout();
             gpPort.SuspendLayout();
             gpDevice.SuspendLayout();
             contextMenuStrip1.SuspendLayout();
+            menuStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // btnProgram
@@ -198,12 +204,49 @@
             btnHelp.UseVisualStyleBackColor = true;
             btnHelp.Click += btnHelp_Click;
             // 
+            // menuStrip1
+            // 
+            menuStrip1.ImageScalingSize = new Size(20, 20);
+            menuStrip1.Items.AddRange(new ToolStripItem[] { 工具ToolStripMenuItem, 关于ToolStripMenuItem });
+            menuStrip1.Location = new Point(0, 0);
+            menuStrip1.Name = "menuStrip1";
+            menuStrip1.Size = new Size(791, 28);
+            menuStrip1.TabIndex = 18;
+            menuStrip1.Text = "menuStrip1";
+            // 
+            // 工具ToolStripMenuItem
+            // 
+            工具ToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { hex转BinToolStripMenuItem });
+            工具ToolStripMenuItem.Name = "工具ToolStripMenuItem";
+            工具ToolStripMenuItem.Size = new Size(53, 24);
+            工具ToolStripMenuItem.Text = "工具";
+            // 
+            // hex转BinToolStripMenuItem
+            // 
+            hex转BinToolStripMenuItem.Name = "hex转BinToolStripMenuItem";
+            hex转BinToolStripMenuItem.Size = new Size(158, 26);
+            hex转BinToolStripMenuItem.Text = "Hex转Bin";
+            hex转BinToolStripMenuItem.Click += hex转BinToolStripMenuItem_Click;
+            // 
+            // 关于ToolStripMenuItem
+            // 
+            关于ToolStripMenuItem.Name = "关于ToolStripMenuItem";
+            关于ToolStripMenuItem.Size = new Size(53, 24);
+            关于ToolStripMenuItem.Text = "关于";
+            关于ToolStripMenuItem.Click += 关于ToolStripMenuItem_Click;
+            // 
+            // saveFileDialog1
+            // 
+            saveFileDialog1.DefaultExt = "bin";
+            saveFileDialog1.Filter = "二进制文件|*.bin";
+            // 
             // MainForm
             // 
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(9F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(791, 523);
+            Controls.Add(menuStrip1);
             Controls.Add(btnHelp);
             Controls.Add(ckbAutoFlash);
             Controls.Add(rtxtConsole);
@@ -212,6 +255,7 @@
             Controls.Add(gbFilePath);
             Controls.Add(btnProgram);
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            MainMenuStrip = menuStrip1;
             Margin = new Padding(5);
             MaximizeBox = false;
             Name = "MainForm";
@@ -227,6 +271,8 @@
             gpPort.ResumeLayout(false);
             gpDevice.ResumeLayout(false);
             contextMenuStrip1.ResumeLayout(false);
+            menuStrip1.ResumeLayout(false);
+            menuStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -246,6 +292,11 @@
         private System.Windows.Forms.Button btnHelp;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem 清空ToolStripMenuItem;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem 工具ToolStripMenuItem;
+        private ToolStripMenuItem hex转BinToolStripMenuItem;
+        private ToolStripMenuItem 关于ToolStripMenuItem;
+        private SaveFileDialog saveFileDialog1;
     }
 }
 

@@ -201,8 +201,20 @@ namespace cade
             }
         }
 
+        private void help()
+        {
+            MessageBox.Show
+    (@"1、选择需要烧录的固件文件(支持拖拽)
+2、Device下选择单片机类型
+3、将单片机插入电脑进入bootloader模式(AVR单片机接入PC后[按复位键/短接RST和GND]自动识别)
+4、点击烧录
+勾选自动烧录后如果插入可识别的单片机则自动开始烧录
+等待下方日志输出<Thank you>即成功");
+        }
+
         private void btnBrowse_Click(object sender, EventArgs e)
         {
+            openFileDialog1.Filter = "Hex 文件|*.hex|EEP 文件|*.eep|BIN 文件|*.bin";
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
                 txtFilePath.Text = openFileDialog1.FileName;
         }
@@ -215,18 +227,33 @@ namespace cade
 
         private void btnHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show
-                (@"1、选择需要烧录的固件文件(支持拖拽)
-2、Device下选择单片机类型
-3、将单片机插入电脑进入bootloader模式(AVR单片机接入PC后[按复位键/短接RST和GND]自动识别)
-4、点击烧录
-勾选自动烧录后如果插入可识别的单片机则自动开始烧录
-等待下方日志输出<Thank you>即成功");
+            help();
         }
 
         private void 清空ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             rtxtConsole.Clear();
+        }
+
+        private void hex转BinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.Filter = "程序文件|*.hex";
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                var binpath = Path.ChangeExtension(openFileDialog1.FileName, ".bin").Trim();
+                saveFileDialog1.FileName = Path.GetFileName(binpath);
+                saveFileDialog1.InitialDirectory = Path.GetDirectoryName(openFileDialog1.FileName);
+                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+                {
+                    Hex2Bin.ConvertHexToBin(openFileDialog1.FileName, saveFileDialog1.FileName);
+                    MessageBox.Show("保存成功");
+                }
+            }
+        }
+
+        private void 关于ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            help();
         }
     }
 }
